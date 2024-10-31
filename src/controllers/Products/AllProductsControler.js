@@ -9,7 +9,7 @@ productModel.hasMany(ProductImageModel, {
 module.exports = async (request, response) => {
     let products = await productModel.findAll({
         include:{
-            attributes: ['id','url'],
+            attributes: ['id','url','path'],
             model: ProductImageModel,
             as: 'images'
         }
