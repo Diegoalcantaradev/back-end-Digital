@@ -7,6 +7,7 @@ productModel.hasMany(ProductImageModel, {
 })
 
 module.exports = async (request, response) => {
+       //  return response.end(request.teste);
     let products = await productModel.findAll({
         include:{
             attributes: ['id','url','path'],

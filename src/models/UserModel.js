@@ -9,11 +9,12 @@ const UserModel = connection.define("UserModel",
         },
         surName:{
             type: DataTypes.STRING(45),
-            allowNull:false
+            allowNull:null
         },
         email:{
             type: DataTypes.STRING(255),
-            allowNull:false
+            allowNull:false,
+            unique:true
         },
         password:{
             type: DataTypes.STRING(255),

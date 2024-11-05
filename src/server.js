@@ -1,13 +1,17 @@
 const dotenv = require('dotenv')
 dotenv.config();
+
 const express = require("express");
 const cors = require('cors')
 const app = express();
+const imagePlaceholder = require('./midleware/image-placeholder');
+
 app.use(cors());
 app.use(express.json());
+
 const userRoutes = require('./routes/user-routes')
 const productsRoutes = require('./routes/product-routes')
-app.use('/public', express.static('public'))
+app.use('/public', imagePlaceholder, express.static('public'));
 
 app.use(userRoutes)
 app.use(productsRoutes)

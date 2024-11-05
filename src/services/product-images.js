@@ -24,13 +24,26 @@ const saveByUrl = async ({url , filename, slug}) => {
     
     let file = `${directory}/${filename}.${extesion}`;
     fs.writeFileSync(file, content);
-    
+
     return {
         relativePath: `${slug}/${filename}.${extesion}`
     }
-
 }
+const deleteSingle = (relativePath) => {
+    let file = path.resolve(`${process.env.UPLOAD_BASE_DIR}/${relativePath}`);
+    if(fs.existsSync(file)) {
+        fs.rmSync(file);
+        return true;
+    }
+    return false;
+}
+const deleteMany = (relativePaths) => {
+    for(let relativePath of relativePaths) {
+        deleteSingle(relativePath);
+    }
+} 
+
 
 module.exports = {
-    saveByUrl
+    saveByUrl,  deleteSingle, deleteMany
 }

@@ -1,16 +1,18 @@
-const express = require('express');
-
-const router = express.Router();
+const privateRoutes = require('./private-routes');
+const publicRoutes = require('./public-routes')
 const AllProductsController = require('../controllers/Products/AllProductsControler');
 const CreateController = require("../controllers/Products/CreateController");
 const UpdateController = require('../controllers/Products/UpdateController');
 const DeleteController = require('../controllers/Products/DeleteController')
-const GeyBySlug = require('../controllers/Products/GetBySlug')
+const GetBySlug = require('../controllers/Products/GetBySlug')
 
-router.delete('/products/:id',DeleteController);
-router.get("/Products",AllProductsController);
-router.post('/products',CreateController);
-router.put('/products/:id',UpdateController);
-router.get('/products/:slug',GetBySlug);
 
-module.exports = router;
+publicRoutes.get("/products",AllProductsController);
+publicRoutes.get('/products/:slug',GetBySlug);
+
+privateRoutes.delete('/products/:id',DeleteController);
+privateRoutes.post('/products',CreateController);
+privateRoutes.put('/products/:id',UpdateController);
+
+
+module.exports = [publicRoutes, privateRoutes];

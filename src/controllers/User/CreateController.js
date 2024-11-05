@@ -1,8 +1,7 @@
 const UserModel = require('../../models/UserModel')
 
 module.exports = async (request, response) => {
-    let {body} = request;
-    let user = await UserModel.create(body);
+    let user = await UserModel.create(request.body);
     response.status(201);
     return response.json(user);
 }
