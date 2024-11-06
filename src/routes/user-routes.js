@@ -18,9 +18,9 @@ const encriptPassword = require('../midleware/encript-password');
 const CreateController = require('../controllers/User/CreateController');
 const CreateTokenController = require('../controllers/User/CreateTokenController');
 
-privateRoutes.post("/users",encriptPassword, CreateController);
+publicRoutes.post("/users",encriptPassword, CreateController);
 publicRoutes.get("/users",AllUserController);
-publicRoutes.post("/users/token",encriptPassword, CreateTokenController);
+publicRoutes.post("/users/token", CreateTokenController);
 
 
 module.exports = router;
