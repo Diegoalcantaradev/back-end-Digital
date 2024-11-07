@@ -1,10 +1,11 @@
 const dotenv = require('dotenv')
 dotenv.config();
+require('./database/associations');
 
 const express = require("express");
 const cors = require('cors')
-const app = express();
 const imagePlaceholder = require('./midleware/image-placeholder');
+const app = express();
 
 app.use(cors());
 app.use(express.json());

@@ -1,7 +1,7 @@
 const UserModel = require("../models/UserModel");
 const jwt = require('jsonwebtoken')
 module.exports = async (request, response, next) => {
-    let token = request.headers.authorization.replace('Bearer ', '');
+    let token = request.headers.authorization?.replace('Bearer ', '');
 try{
     if(!token){
         throw new Error("Token não enviado na requisição");

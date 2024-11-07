@@ -14,6 +14,11 @@ const saveByUrl = async ({url , filename, slug}) => {
 
     let response = await fetch(url);
     let mimeType = response.headers.get("content-type");
+
+    if(!['image/png', 'image/jpeg', 'image/jpg', 'image/webp'].includes(mimeType)) {
+        throw new Error("Envie apenas imagens png, jpeg, jpg ou webp");
+    }
+
     let extesion = mimeType.split('/').pop();
     let content = Buffer.from(await response.arrayBuffer());
     let directory = path.resolve(`${process.env.UPLOAD_BASE_DIR}/${slug}`);
