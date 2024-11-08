@@ -1,11 +1,12 @@
 const productModel = require("../../models/ProductModel")
 const ProductImageModel = require('../../models/ProductImageModel')
 
-
-
 module.exports = async (request, response) => {
        //  return response.end(request.teste);
     let products = await productModel.findAll({
+        where:{
+            enabled:true
+        },
         include:{
             attributes: ['id','url','path'],
             model: ProductImageModel,
