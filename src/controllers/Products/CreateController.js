@@ -10,13 +10,15 @@ module.exports = async (request, response) => {
         slug,
         price,
         enabled,
-        price_with_descount
+        price_with_discount,
+        stock,
+        description
     } = request.body;
     let product;
 
     try{
         product = await ProductModel.create({
-            name,slug,price,enabled,price_with_descount
+            name,slug,price,enabled,price_with_discount,stock,description
         });
     }catch(error){
         response.status(400)

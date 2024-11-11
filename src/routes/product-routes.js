@@ -10,14 +10,16 @@ const CreateImagesController = require('../controllers/Products/CreateImagesCont
 const UpdateImagesController = require('../controllers/Products/UpdateImagesController')
 const CreateCategoryController = require('../controllers/Products/CreateCategoryController')
 const AllCategoryController = require('../controllers/Products/AllCategoryController')
-
+const AllOptionsController = require('../controllers/Products/AllOptionsController')
+const CreateOptionsController = require('../controllers/Products/CreateOptionsController');
 publicRoutes.get("/products",AllProductsController);
 publicRoutes.get('/products/:slug',GetBySlug);
 publicRoutes.get('/products/:id/images',ListImagesController);
-
+publicRoutes.get('/products/:id/options',AllOptionsController);
+publicRoutes.post('/products/:id/options', CreateOptionsController);
 publicRoutes.get('/products/category',AllCategoryController);
-
 publicRoutes.post('/products/category',CreateCategoryController);
+
 
 privateRoutes.put('/products/:id/images/:imageId',UpdateImagesController);
 privateRoutes.post('/products/:id/images',CreateImagesController);

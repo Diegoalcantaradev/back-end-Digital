@@ -1,8 +1,6 @@
 const productModel = require("../../models/ProductModel")
 const ProductImageModel = require('../../models/ProductImageModel')
 
-
-
 module.exports = async (request, response) => {
     let products = await productModel.findAll({
         where:{
