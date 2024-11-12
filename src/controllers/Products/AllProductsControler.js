@@ -3,6 +3,7 @@ const ProductImageModel = require('../../models/ProductImageModel')
 const ProductOptionsModel = require('../../models/ProductOptionsModel')
 module.exports = async (request, response) => {
        //  return response.end(request.teste);
+       console.log(response)
     let products = await productModel.findAll({
         where:{
             enabled:true
