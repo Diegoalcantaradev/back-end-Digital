@@ -4,6 +4,8 @@ const { saveByUrl } = require('../../services/product-images');
 
 module.exports = async (request, response)=>{
     let {id, imageId} = request.params;
+
+    
     let product = await ProductModel.findOne({
         where:{id}
     });

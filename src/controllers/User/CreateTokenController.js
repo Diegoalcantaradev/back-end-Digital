@@ -27,7 +27,7 @@ module.exports = async (request, response) => {
 
     // email = btoa(user.email);
     // let secret = btoa(process.env.secret)
-    let token = jwt.sign({id: user.id}, process.env.secret, {expiresIn: "1h"})
+    let token = jwt.sign({id: user.id}, process.env.secret, {expiresIn: "24h"})
     return response.json({ token
         // token: btoa(`${email}:${user.password}:${secret}`)
     });
