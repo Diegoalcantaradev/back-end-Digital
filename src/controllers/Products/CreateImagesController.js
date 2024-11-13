@@ -26,7 +26,9 @@ module.exports = async(request, response)=>{
             message: error.message
         })
     }
-    images = await ProductImageModel.bulkCreate(images);
+    images = await ProductImageModel.bulkCreate({
+        message:"Imagem criada com sucesso",
+        images});
     response.status(201)
     return response.json(images);
 }

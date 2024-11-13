@@ -20,6 +20,7 @@ module.exports = async (request, response) => {
         product = await ProductModel.create({
             name,slug,price,enabled,price_with_discount,stock,description
         });
+        
     }catch(error){
         response.status(400)
         return response.json({
@@ -38,7 +39,9 @@ module.exports = async (request, response) => {
     }
     await ProductImageModel.bulkCreate(images)
     response.status(201);
-    return response.json(product);
+    return response.json({
+        message:"produto criado com sucesso!",
+        product});
 }catch(error){
     console.log(error.message);
      response.status(400)

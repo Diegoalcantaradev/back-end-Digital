@@ -19,16 +19,16 @@ const DeleteImageController = require('../controllers/Products/DeleteImageContro
 
 // Rota ControllerProduto Lista
 publicRoutes.get("/products",AllProductsController);
-publicRoutes.get('/products/:slug',GetBySlug);
 publicRoutes.get('/products/:id/images',ListImagesController);
 publicRoutes.get('/products/:id/options',AllOptionsController);
-publicRoutes.get('/products/categories',AllCategoryController);
+publicRoutes.get('/categories',AllCategoryController);
 
 // Rota ControllerProduto create
 publicRoutes.post('/products',CreateController);
 publicRoutes.post('/products/categories',CreateCategoryController);
 publicRoutes.post('/products/:id/options', CreateOptionsController);
 publicRoutes.post('/products/:id/images',CreateImagesController);
+publicRoutes.get('/products/:slug',GetBySlug);
 
 // Rota ControllerProduto upgrade
 publicRoutes.put('/products/:Productid/options/:id',UpdateOptions)
