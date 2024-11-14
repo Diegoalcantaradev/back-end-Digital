@@ -13,15 +13,18 @@ const AllOptionsController = require('../controllers/Products/AllOptionsControll
 const CreateOptionsController = require('../controllers/Products/CreateOptionsController');
 const DeleteController = require('../controllers/Products/DeleteController')
 const DeleteOptions = require('../controllers/Products/DeleteOptions');
-const UpdateOptions = require('../controllers/Products/UpdateOptions')
-const DeleteImageController = require('../controllers/Products/DeleteImageController')
-
+const UpdateOptions = require('../controllers/Products/UpdateOptions');
+const DeleteImageController = require('../controllers/Products/DeleteImageController');
+const GetByIdCategory = require('../controllers/Products/GetByIdCategory');
+const DeleteCategory = require('../controllers/Products/DeleteCategory');
+const UpdateCategory = require('../controllers/Products/UpdateCategory') 
 
 // Rota ControllerProduto Lista
 publicRoutes.get("/products",AllProductsController);
 publicRoutes.get('/products/:id/images',ListImagesController);
 publicRoutes.get('/products/:id/options',AllOptionsController);
 publicRoutes.get('/categories',AllCategoryController);
+publicRoutes.get('/categories/:id',GetByIdCategory);
 
 // Rota ControllerProduto create
 publicRoutes.post('/products',CreateController);
@@ -34,9 +37,11 @@ publicRoutes.get('/products/:slug',GetBySlug);
 publicRoutes.put('/products/:Productid/options/:id',UpdateOptions)
 publicRoutes.put('/products/:id',UpdateController);
 publicRoutes.put('/products/:id/images/:imageId',UpdateImagesController);
+publicRoutes.put('/categories/:id',UpdateCategory);
 
 // Rota ControllerProduto delete
 publicRoutes.delete('/products/:id',DeleteController);
 publicRoutes.delete('/products/:Productid/options/:id', DeleteOptions);
 publicRoutes.delete('/products/:productId/images/:id',DeleteImageController);
+publicRoutes.delete('/categories/:id',DeleteCategory);
 module.exports = [publicRoutes, privateRoutes];

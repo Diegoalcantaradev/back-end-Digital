@@ -11,7 +11,6 @@ module.exports = async (request, response) => {
         response.status(204) 
         return response.json({
             message: "Produto atualizado com sucesso!"
-            
         });
     } catch (error) {
         response.status(400)
